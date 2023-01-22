@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 from Mur import *
 from Paddel import *
+from Ball import *
 # Initialiser la fenetre de jeu
 pygame.init()
 
@@ -18,6 +19,8 @@ mur.create_wall()
 QUANTAM = pygame.time.Clock()
 paddle = Paddle()
 
+ball = Ball()
+
 while run:
     # Definer fps
     QUANTAM.tick(60)
@@ -26,8 +29,10 @@ while run:
     
     # Dessiner 
     mur.draw_wall()
+    ball.draw()
     paddle.draw()
     paddle.move()
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
