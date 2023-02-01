@@ -15,6 +15,7 @@ class Mur():
     def __init__(self):
         self.width = screen_width // cols
         self.height = 60
+        self.destroyed =0
     def create_wall(self):
         self.block = []
         # Block list for each block

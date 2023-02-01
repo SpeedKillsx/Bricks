@@ -19,7 +19,7 @@ mur.create_wall()
 QUANTAM = pygame.time.Clock()
 paddle = Paddle()
 
-ball = Ball()
+ball = Ball(paddle.x +(paddle.width// 2),paddle.y-(paddle.height))
 
 while run:
     # Definer fps
@@ -29,13 +29,21 @@ while run:
     
     # Dessiner 
     mur.draw_wall()
-    ball.draw()
     paddle.draw()
     paddle.move()
+    ball.draw()
+    if ball.move(paddle=paddle, wall=mur) == 0:
+        pass
+    elif ball.move(paddle=paddle, wall=mur) == -1:
+        ball.reset(paddle.x +(paddle.width// 2),paddle.y-(paddle.height))
+    else:
+        print("YOU WIN")
+        run = False
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
+        
     pygame.display.update()
         
 
