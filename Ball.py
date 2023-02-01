@@ -71,8 +71,8 @@ class Ball():
         #  Move the ball
         self.rect.x += self.speed_x
         self.rect.y += self.speed_y
-        
         return self.game_over
+    
     def reset(self, x, y):
         self.ball_rad = 10
         # Center the ball
